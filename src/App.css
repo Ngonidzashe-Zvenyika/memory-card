@@ -1,5 +1,6 @@
 header,
-footer {
+footer,
+.loading {
   text-align: center;
   color: var(--color-three);
 }
@@ -12,6 +13,20 @@ header {
 
 h1 {
   font-size: 3.2rem;
+}
+
+.loading {
+  animation: 1s ease-in-out infinite alternate load;
+}
+
+@keyframes load {
+  from {
+    opacity: 0.3;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 header > div {

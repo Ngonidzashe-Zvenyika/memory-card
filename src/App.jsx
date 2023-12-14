@@ -7,6 +7,7 @@ export default function App() {
   const [highScore, setHighScore] = useState(0);
   const [pokemonData, setPokemonData] = useState([]);
   const [selectedPokemons, setSelectedPokemons] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   function shuffleData(data) {
     const dataCopy = data.slice();
@@ -37,8 +38,10 @@ export default function App() {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const data = await fetchPokemonData();
       shuffleData(data);
+      setLoading(false);
     };
     fetchData();
   }, []);
@@ -57,18 +60,24 @@ export default function App() {
         </div>
       </header>
       <main>
-        {pokemonData.map((pokemon) => {
-          return (
-            <button
-              key={pokemon.id}
-              className="pokemon"
-              onClick={() => updateGame(pokemon.id)}
-            >
-              <img src={pokemon.sprites.front_default} alt="" />
-              {pokemon.name.slice(0, 1).toUpperCase() + pokemon.name.slice(1)}
-            </button>
-          );
-        })}
+        {loading && <h1 className="loading">Loading...</h1>}
+        {!loading && (
+          <>
+            {pokemonData.map((pokemon) => {
+              return (
+                <button
+                  key={pokemon.id}
+                  className="pokemon"
+                  onClick={() => updateGame(pokemon.id)}
+                >
+                  <img src={pokemon.sprites.front_default} alt="" />
+                  {pokemon.name.slice(0, 1).toUpperCase() +
+                    pokemon.name.slice(1)}
+                </button>
+              );
+            })}
+          </>
+        )}
       </main>
       <footer>
         Developed by{' '}
