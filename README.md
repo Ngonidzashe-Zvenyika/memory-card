@@ -4,7 +4,8 @@
 
 ## Purpose
 
-1. Learn to use the `useEffect` React hook
+1. Practice using the `useEffect` React hook
+2. Make use of the `RESTful PokeAPI`
 
 ## Skills Used
 
@@ -16,6 +17,7 @@
 6. Vite
 7. Eslint
 8. React
+9. Web API's
 
 #### Sources:
 
