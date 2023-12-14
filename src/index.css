@@ -1,0 +1,39 @@
+@font-face {
+  font-family: Grandstander;
+  src: url(/Grandstander-VariableFont_wght.ttf) format('truetype');
+}
+
+:root {
+  font-size: 62.5%;
+  --color-one: #3e6623;
+  --color-two: #8ab661;
+  --color-three: #b8860b;
+  --color-four: white;
+}
+
+*,
+::before,
+::after {
+  font-family: Grandstander, Arial, sans-serif, system-ui, 'Segoe UI', Roboto,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 1.6rem;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-one);
+  box-shadow: inset 0px 20px 40px black;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: min(100%, 640px);
+  grid-template-rows: auto 1fr auto;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  min-height: 100vh;
+  min-height: 100svh;
+}
